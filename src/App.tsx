@@ -144,6 +144,7 @@ function QuoteTile({ text }: { text: string }) {
   return (
     <div className="relative aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden flex items-center justify-center p-8 group hover:from-gray-900 hover:to-black transition-all duration-500">
       <div className="relative z-10">
+        <div className="text-6xl text-gray-600 mb-4 opacity-50 font-serif leading-none">&ldquo;</div>
         <p className="text-white text-lg leading-relaxed font-light italic">
           {text}
         </p>
