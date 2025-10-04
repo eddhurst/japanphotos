@@ -13,6 +13,7 @@ const locations: Location[] = [
     images: [
       'https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://cdn.jsdelivr.net/gh/eddhurst/japanphotos@v1.0.0/public/assets/20250906_180207.jpg',
       {
         type: 'quote',
         text: 'Landing in Tokyo felt like stepping into a dream where ancient traditions danced gracefully alongside neon-lit modernity. The energy of Shibuya crossing, the serenity of Meiji Shrine, and the electric nights in Shinjuku created a tapestry of experiences that would forever change how I see the world.',
