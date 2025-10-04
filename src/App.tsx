@@ -4,7 +4,7 @@ import { Camera } from 'lucide-react';
 interface Location {
   id: string;
   name: string;
-  images: string[];
+  images: (string | { type: 'quote'; text: string })[];
 }
 
 const locations: Location[] = [
@@ -14,6 +14,10 @@ const locations: Location[] = [
     images: [
       'https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=800',
+      {
+        type: 'quote',
+        text: 'Landing in Tokyo felt like stepping into a dream where ancient traditions danced gracefully alongside neon-lit modernity. The energy of Shibuya crossing, the serenity of Meiji Shrine, and the electric nights in Shinjuku created a tapestry of experiences that would forever change how I see the world.',
+      },
       'https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/315191/pexels-photo-315191.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -137,6 +141,26 @@ function LazyImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+function QuoteTile({ text }: { text: string }) {
+  return (
+    <div className="relative aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden flex items-center justify-center p-8 group hover:from-gray-900 hover:to-black transition-all duration-500">
+      <div className="relative z-10">
+        <svg
+          className="w-12 h-12 text-gray-600 mb-4 opacity-50"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+        </svg>
+        <p className="text-white text-lg leading-relaxed font-light italic">
+          {text}
+        </p>
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    </div>
+  );
+}
+
 function App() {
   const [activeSection, setActiveSection] = useState('tokyo');
 
@@ -217,13 +241,18 @@ function App() {
                 <div className="w-20 h-1 bg-gray-900 rounded"></div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {location.images.map((image, imgIdx) => (
-                  <LazyImage
-                    key={imgIdx}
-                    src={image}
-                    alt={`${location.name} - Photo ${imgIdx + 1}`}
-                  />
-                ))}
+                {location.images.map((image, imgIdx) => {
+                  if (typeof image === 'object' && image.type === 'quote') {
+                    return <QuoteTile key={imgIdx} text={image.text} />;
+                  }
+                  return (
+                    <LazyImage
+                      key={imgIdx}
+                      src={image as string}
+                      alt={`${location.name} - Photo ${imgIdx + 1}`}
+                    />
+                  );
+                })}
               </div>
             </section>
           ))}
