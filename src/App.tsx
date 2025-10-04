@@ -256,7 +256,7 @@ function App() {
 
       <footer className="bg-white border-t border-gray-200 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-600">Memories from an unforgettable journey</p>
+          <p className="text-gray-600">All content copyright &copy; Edward Hurst and Zoe Courchene 2025</p>
         </div>
       </footer>
     </div>
