@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
+const ASSET_VERSION = '1.1.0';
+
 interface Location {
   id: string;
   name: string;
@@ -13,7 +15,7 @@ const locations: Location[] = [
     images: [
       'https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://cdn.jsdelivr.net/gh/eddhurst/japanphotos@1.0.0/public/assets/20250906_180207.jpg',
+      `https://cdn.jsdelivr.net/gh/eddhurst/japanphotos@${ASSET_VERSION}/assets/20250906_180207.jpg`,
       {
         type: 'quote',
         text: 'Landing in Tokyo felt like stepping into a dream where ancient traditions danced gracefully alongside neon-lit modernity. The energy of Shibuya crossing, the serenity of Meiji Shrine, and the electric nights in Shinjuku created a tapestry of experiences that would forever change how I see the world.',
@@ -198,7 +200,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center space-x-3">
-              <h1 className="text-2xl font-bold text-gray-900">My Holiday Journey</h1>
+              <h1 className="text-2xl font-bold text-gray-900">JapanMoon</h1>
             </div>
             <nav className="hidden md:flex space-x-1">
               {locations.map((location) => (
