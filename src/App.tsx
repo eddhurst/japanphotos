@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Camera } from 'lucide-react';
 
 interface Location {
   id: string;
@@ -145,13 +144,6 @@ function QuoteTile({ text }: { text: string }) {
   return (
     <div className="relative aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden flex items-center justify-center p-8 group hover:from-gray-900 hover:to-black transition-all duration-500">
       <div className="relative z-10">
-        <svg
-          className="w-12 h-12 text-gray-600 mb-4 opacity-50"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
-        </svg>
         <p className="text-white text-lg leading-relaxed font-light italic">
           {text}
         </p>
@@ -204,7 +196,6 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center space-x-3">
-              <Camera className="w-8 h-8 text-gray-800" strokeWidth={2} />
               <h1 className="text-2xl font-bold text-gray-900">My Holiday Journey</h1>
             </div>
             <nav className="hidden md:flex space-x-1">
