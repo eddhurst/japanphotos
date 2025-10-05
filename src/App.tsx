@@ -5,7 +5,7 @@ const ASSET_VERSION = '1.1.0';
 interface Location {
   id: string;
   name: string;
-  images: (string | { type: 'quote'; text: string } | { type: 'gif'; gifSrc: string; placeholderSrc: string })[];
+  images: (string | { type: 'quote'; text: string; wide?: boolean } | { type: 'gif'; gifSrc: string; placeholderSrc: string })[];
 }
 
 const locations: Location[] = [
@@ -19,6 +19,7 @@ const locations: Location[] = [
       {
         type: 'quote',
         text: 'Landing in Tokyo felt like stepping into a dream where ancient traditions danced gracefully alongside neon-lit modernity. The energy of Shibuya crossing, the serenity of Meiji Shrine, and the electric nights in Shinjuku created a tapestry of experiences that would forever change how I see the world.',
+        wide: true,
       },
       'https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/315191/pexels-photo-315191.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -214,11 +215,13 @@ function GifTile({ gifSrc, placeholderSrc, alt }: { gifSrc: string; placeholderS
   );
 }
 
-function QuoteTile({ text }: { text: string }) {
+function QuoteTile({ text, wide = false }: { text: string; wide?: boolean }) {
   return (
-    <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden flex items-center justify-center p-8 group hover:from-gray-900 hover:to-black transition-all duration-500">
+    <div className={`relative aspect-[4/3] bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden flex items-center justify-center p-8 group hover:from-gray-900 hover:to-black transition-all duration-500 ${
+      wide ? 'sm:col-span-2' : ''
+    }`}>
       <div className="relative z-10">
-        <div className="text-6xl text-gray-600 mb-4 opacity-50 font-serif leading-none">&ldquo;</div>
+        <div className="text-7xl text-gray-600 mb-2 opacity-50 font-serif leading-[0.8]">&ldquo;</div>
         <p className="text-white text-lg leading-relaxed font-light italic">
           {text}
         </p>
@@ -310,7 +313,7 @@ function App() {
                 {location.images.map((image, imgIdx) => {
                   if (typeof image === 'object') {
                     if (image.type === 'quote') {
-                      return <QuoteTile key={imgIdx} text={image.text} />;
+                      return <QuoteTile key={imgIdx} text={image.text} wide={image.wide} />;
                     } else if (image.type === 'gif') {
                       return (
                         <GifTile
