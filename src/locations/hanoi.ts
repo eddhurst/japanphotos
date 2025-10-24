@@ -9,9 +9,9 @@ const Hanoi = {
     {
       type: 'group',
       tiles: [
-        { type: 'image', image: 'https://images.pexels.com/photos/2412609/pexels-photo-2412609.jpeg?auto=compress&cs=tinysrgb&w=800' },
-        { type: 'image', image: 'https://images.pexels.com/photos/2412610/pexels-photo-2412610.jpeg?auto=compress&cs=tinysrgb&w=800' },
-        { type: 'image', image: 'https://images.pexels.com/photos/2412603/pexels-photo-2412603.jpeg?auto=compress&cs=tinysrgb&w=800' },
+        { type: 'image', image: 'https://images.pexels.com/photos/2412609/pexels-photo-2412609.jpeg?auto=compress&cs=tinysrgb&w=800', wide: true },
+        { type: 'image', image: 'https://images.pexels.com/photos/2412610/pexels-photo-2412610.jpeg?auto=compress&cs=tinysrgb&w=800', wide: true },
+        { type: 'image', image: 'https://images.pexels.com/photos/2412603/pexels-photo-2412603.jpeg?auto=compress&cs=tinysrgb&w=800', tall: true },
         
       ]
     }
