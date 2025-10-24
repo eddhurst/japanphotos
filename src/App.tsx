@@ -4,7 +4,7 @@ import GifTile from './components/tiles/GifTile';
 import LazyImage from './components/tiles/LazyImage';
 import { Hakone, Hanoi, Kamakura, Kyoto, Takayama, Tokyo, Yamanouchi } from './locations';
 import Header from './components/header/Header';
-import { LocationType } from './types/types';
+import { LocationType, TileType } from './types/types';
 import Modal from './components/Modal/Modal';
 
 const locations: LocationType[] = [
@@ -20,6 +20,38 @@ const locations: LocationType[] = [
 function App() {
   const [modalImage, setModalImage] = useState<string | null>(null);
   const handleCloseModal = () => setModalImage(null);
+
+  const renderTile = (tile: TileType, imgIdx: number, locationName: string) => {
+    if (tile.type === 'quote') {
+      return <QuoteTile key={imgIdx} text={tile.text} wide={tile.wide} />;
+    } else if (tile.type === 'gif') {
+      return (
+        <GifTile
+          key={imgIdx}
+          gifSrc={tile.gifSrc}
+          placeholderSrc={tile.placeholderSrc}
+          alt={`${locationName} - Animation ${imgIdx + 1}`}
+        />
+      );
+    } else if (tile.type === 'group') {
+      return (
+        <div key={imgIdx} className="sm:col-span-2 grid grid-cols-2 gap-6">
+          {tile.tiles.map((subTile, subIdx) => renderTile(subTile, `${imgIdx}-${subIdx}` as any, locationName))}
+        </div>
+      );
+    } else {
+      return (
+        <LazyImage
+          key={imgIdx}
+          src={tile.image}
+          wide={tile.wide}
+          tall={tile.tall}
+          alt={`${locationName} - Photo ${imgIdx + 1}`}
+          onClick={() => setModalImage(tile.image)}
+        />
+      );
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
@@ -45,35 +77,7 @@ function App() {
                 <div className="w-20 h-1 bg-gray-900 rounded"></div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                {/* Add the ability for a grid to hold 2 columns */}
-                {location.tiles.map((tile, imgIdx) => {
-                  if (tile.type === 'quote') {
-                    return <QuoteTile key={imgIdx} text={tile.text} wide={tile.wide} />;
-                  } else if (tile.type === 'gif') {
-                    return (
-                        <GifTile
-                          key={imgIdx}
-                          gifSrc={tile.gifSrc}
-                          placeholderSrc={tile.placeholderSrc}
-                          alt={`${location.name} - Animation ${imgIdx + 1}`}
-                        />
-                      );
-                  } else {
-                    
-
-                    return (
-                      <LazyImage
-                        key={imgIdx}
-                        src={tile.image}
-                        wide={tile.wide}
-                        tall={tile.tall}
-                        alt={`${location.name} - Photo ${imgIdx + 1}`}
-                        onClick={() => setModalImage(tile.image)}
-                      />
-                    );
-                  }
-                })}
+                {location.tiles.map((tile, imgIdx) => renderTile(tile, imgIdx, location.name))}
               </div>
             </section>
           ))}

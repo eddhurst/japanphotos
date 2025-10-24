@@ -25,12 +25,12 @@ const LazyImage = ({ src, alt, wide = false, tall = false, onClick }: { src: str
     return () => observer.disconnect();
   }, []);
 
-  const aspectRatio = wide ? 'sm:col-span-2 max-h-[300px]' : (tall ? 'max-h-[480px]' : '');
+  const aspectRatio = wide ? 'sm:col-span-2 max-h-[300px]' : (tall ? 'row-span-2 h-full min-h-[400px]' : '');
 
   return (
     <div
       ref={imgRef}
-      className={`relative bg-gray-200 rounded-lg overflow-hidden group cursor-pointer ${aspectRatio}`}
+      className={`relative bg-gray-200 rounded-lg overflow-hidden group cursor-pointer ${aspectRatio} ${!wide && !tall ? 'aspect-[4/3]' : ''}`}
       onClick={onClick}
     >
       {isInView && (
