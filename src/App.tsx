@@ -21,32 +21,32 @@ function App() {
   const [modalImage, setModalImage] = useState<string | null>(null);
   const handleCloseModal = () => setModalImage(null);
 
-  const renderTile = (tile: TileType, imgIdx: number, locationName: string) => {
+  const renderTile = (tile: TileType, tileKey: string | number, locationName: string) => {
     if (tile.type === 'quote') {
-      return <QuoteTile key={imgIdx} text={tile.text} wide={tile.wide} />;
+      return <QuoteTile key={tileKey} text={tile.text} wide={tile.wide} />;
     } else if (tile.type === 'gif') {
       return (
         <GifTile
-          key={imgIdx}
+          key={tileKey}
           gifSrc={tile.gifSrc}
           placeholderSrc={tile.placeholderSrc}
-          alt={`${locationName} - Animation ${imgIdx + 1}`}
+          alt={`${locationName} - Animation`}
         />
       );
     } else if (tile.type === 'group') {
       return (
-        <div key={imgIdx} className="sm:col-span-2 grid grid-cols-2 gap-6">
-          {tile.tiles.map((subTile, subIdx) => renderTile(subTile, `${imgIdx}-${subIdx}` as any, locationName))}
+        <div key={tileKey} className="sm:col-span-2 grid grid-cols-2 gap-6">
+          {tile.tiles.map((subTile, subIdx) => renderTile(subTile, `${tileKey}-${subIdx}`, locationName))}
         </div>
       );
     } else {
       return (
         <LazyImage
-          key={imgIdx}
+          key={tileKey}
           src={tile.image}
           wide={tile.wide}
           tall={tile.tall}
-          alt={`${locationName} - Photo ${imgIdx + 1}`}
+          alt={`${locationName} - Photo`}
           onClick={() => setModalImage(tile.image)}
         />
       );
