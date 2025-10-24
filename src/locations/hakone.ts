@@ -14,13 +14,22 @@ const Hakone = {
     
     { type: 'image', image: `${ASSET_CDN}/assets/hakone/hakoneTorii.jpg`, tall: true },
     { type: 'image', image: `${ASSET_CDN}/assets/hakone/20250913_074418.jpg`, tall: true },
-    { type: 'image', image: `${ASSET_CDN}/assets/hakone/IMG20250910173437.jpg`, tall: true },
+    
 
     { type: 'image', image: `${ASSET_CDN}/assets/hakone/20250911_095631.jpg`, wide: true },
     
-    { type: 'image', image: `${ASSET_CDN}/assets/hakone/20250911_165935.jpg`, wide: true },
-    { type: 'image', image: `${ASSET_CDN}/assets/hakone/20250912_160512.jpg`, wide: true },
+    
+    
     { type: 'image', image: `${ASSET_CDN}/assets/hakone/IMG20250910142915.jpg`, wide: true },
+
+    {
+      type: 'group',
+      tiles: [
+        { type: 'image', image: `${ASSET_CDN}/assets/hakone/20250911_165935.jpg`, wide: true },
+        { type: 'image', image: `${ASSET_CDN}/assets/hakone/20250912_160512.jpg`, wide: true },
+        { type: 'image', image: `${ASSET_CDN}/assets/hakone/IMG20250910173437.jpg`, tall: true },
+      ]
+    }
     
     { type: 'image', image: `${ASSET_CDN}/assets/hakone/IMG20250910191553.jpg` },
     { type: 'image', image: `${ASSET_CDN}/assets/hakone/IMG20250910175000.jpg`, wide: true },
