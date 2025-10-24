@@ -29,7 +29,7 @@ const Hakone = {
         { type: 'image', image: `${ASSET_CDN}/assets/hakone/20250912_160512.jpg`, wide: true },
         { type: 'image', image: `${ASSET_CDN}/assets/hakone/IMG20250910173437.jpg`, tall: true },
       ]
-    }
+    },
     
     { type: 'image', image: `${ASSET_CDN}/assets/hakone/IMG20250910191553.jpg` },
     { type: 'image', image: `${ASSET_CDN}/assets/hakone/IMG20250910175000.jpg`, wide: true },
