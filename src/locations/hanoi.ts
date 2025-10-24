@@ -14,7 +14,7 @@ const Hanoi = {
         { type: 'image', image: 'https://images.pexels.com/photos/2412603/pexels-photo-2412603.jpeg?auto=compress&cs=tinysrgb&w=800', tall: true },
         
       ]
-    }
+    },
     { type: 'image', image: 'https://images.pexels.com/photos/4244785/pexels-photo-4244785.jpeg?auto=compress&cs=tinysrgb&w=800' },
     { type: 'image', image: 'https://images.pexels.com/photos/5624361/pexels-photo-5624361.jpeg?auto=compress&cs=tinysrgb&w=800' },
   ],
