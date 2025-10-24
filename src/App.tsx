@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
-import QuoteTile from './components/tiles/QuoteTile';
-import GifTile from './components/tiles/GifTile';
-import LazyImage from './components/tiles/LazyImage';
+import { useState } from 'react';
 import { Hakone, Hanoi, Kamakura, Kyoto, Takayama, Tokyo, Yamanouchi } from './locations';
 import Header from './components/header/Header';
-import { LocationType, TileType } from './types/types';
+import { LocationType } from './types/types';
 import Modal from './components/Modal/Modal';
+import Layout from './components/Layout/Layout';
 
 const locations: LocationType[] = [
   Tokyo,
@@ -20,38 +18,6 @@ const locations: LocationType[] = [
 function App() {
   const [modalImage, setModalImage] = useState<string | null>(null);
   const handleCloseModal = () => setModalImage(null);
-
-  const renderTile = (tile: TileType, tileKey: string | number, locationName: string) => {
-    if (tile.type === 'quote') {
-      return <QuoteTile key={tileKey} text={tile.text} wide={tile.wide} />;
-    } else if (tile.type === 'gif') {
-      return (
-        <GifTile
-          key={tileKey}
-          gifSrc={tile.gifSrc}
-          placeholderSrc={tile.placeholderSrc}
-          alt={`${locationName} - Animation`}
-        />
-      );
-    } else if (tile.type === 'group') {
-      return (
-        <div key={tileKey} className="sm:col-span-2 grid grid-cols-2 gap-6">
-          {tile.tiles.map((subTile, subIdx) => renderTile(subTile, `${tileKey}-${subIdx}`, locationName))}
-        </div>
-      );
-    } else {
-      return (
-        <LazyImage
-          key={tileKey}
-          src={tile.image}
-          wide={tile.wide}
-          tall={tile.tall}
-          alt={`${locationName} - Photo`}
-          onClick={() => setModalImage(tile.image)}
-        />
-      );
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
@@ -76,8 +42,12 @@ function App() {
                 </div>
                 <div className="w-20 h-1 bg-gray-900 rounded"></div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {location.tiles.map((tile, imgIdx) => renderTile(tile, imgIdx, location.name))}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                {
+                  location.tiles.map((tile, imgIdx) => (
+                    <Layout key={imgIdx} tile={tile} openModal={setModalImage} locationName={location.name} />
+                  ))
+                }
               </div>
             </section>
           ))}

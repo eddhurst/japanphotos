@@ -1,6 +1,15 @@
+import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 
-const LazyImage = ({ src, alt, wide = false, tall = false, onClick }: { src: string; alt: string, wide?: boolean, tall?: boolean, onClick?: () => void }) => {
+type LazyImageProps = {
+  src: string;
+  alt: string;
+  columns?: number;
+  tall?: boolean;
+  onClick?: () => void;
+}
+
+const LazyImage: React.FC<LazyImageProps> = ({ src, alt, columns = 1, tall = false, onClick }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
@@ -24,13 +33,30 @@ const LazyImage = ({ src, alt, wide = false, tall = false, onClick }: { src: str
 
     return () => observer.disconnect();
   }, []);
+  
+  let width = 'col-span-3 lg:col-span-1';
+  if (columns === 2) {
+    width = 'md:col-span-2 max-h-[300px]';
+  } else if (columns === 3) {
+    width = 'md:col-span-3 max-h-[300px]';
+  }
 
-  const aspectRatio = wide ? 'sm:col-span-2 max-h-[300px]' : (tall ? 'row-span-2 h-full min-h-[400px]' : '');
+  let height = 'h-full max-h-[320px]';
+  if (tall) {
+    height = 'h-full max-h-[656px]';
+  }
+
+  const wrapperStyles = clsx(
+    'relative bg-gray-200 rounded-lg overflow-hidden group cursor-pointer',
+    width,
+    height,
+    !width && !height ? 'aspect-[4/3]' : ''
+  )
 
   return (
     <div
       ref={imgRef}
-      className={`relative bg-gray-200 rounded-lg overflow-hidden group cursor-pointer ${aspectRatio} ${!wide && !tall ? 'aspect-[4/3]' : ''}`}
+      className={wrapperStyles}
       onClick={onClick}
     >
       {isInView && (
