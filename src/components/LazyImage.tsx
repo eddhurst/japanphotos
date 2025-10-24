@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const LazyImage = ({ src, alt, wide = false, tall = false }: { src: string; alt: string, wide?: boolean, tall?: boolean }) => {
+const LazyImage = ({ src, alt, wide = false, tall = false, onClick }: { src: string; alt: string, wide?: boolean, tall?: boolean, onClick?: () => void }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
@@ -30,7 +30,8 @@ const LazyImage = ({ src, alt, wide = false, tall = false }: { src: string; alt:
   return (
     <div
       ref={imgRef}
-      className={`relative bg-gray-200 rounded-lg overflow-hidden group ${aspectRatio}`}
+      className={`relative bg-gray-200 rounded-lg overflow-hidden group cursor-pointer ${aspectRatio}`}
+      onClick={onClick}
     >
       {isInView && (
         <>

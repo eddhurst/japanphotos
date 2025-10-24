@@ -27,6 +27,7 @@ const locations: Location[] = [
 
 function App() {
   const [activeSection, setActiveSection] = useState('tokyo');
+  const [modalImage, setModalImage] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -133,6 +134,7 @@ function App() {
                         wide={tile.wide}
                         tall={tile.tall}
                         alt={`${location.name} - Photo ${imgIdx + 1}`}
+                        onClick={() => setModalImage(tile.image)}
                       />
                     );
                   }
@@ -142,6 +144,38 @@ function App() {
           ))}
         </div>
       </main>
+
+      {modalImage && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setModalImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setModalImage(null)}
+          >
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <img
+            src={modalImage}
+            alt="Enlarged view"
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       <footer className="bg-white border-t border-gray-200 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
