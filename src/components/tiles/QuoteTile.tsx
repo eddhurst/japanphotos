@@ -12,11 +12,11 @@ const QuoteTile: React.FC<QuoteTileProps> = ({ text, columns = 1 }) => {
   } else if (columns === 3) {
     width = 'col-span-3';
   }
-  
 
   const wrapperStyles = clsx(
     'relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden flex items-center justify-center p-8 group',
     'hover:from-gray-900 hover:to-black transition-all duration-500',
+    'h-full',
     width
   );
 

@@ -2,7 +2,7 @@ import { TileType } from "../../types/types";
 import GifTile from "../tiles/GifTile";
 import LazyImage from "../tiles/LazyImage";
 import QuoteTile from "../tiles/QuoteTile";
-import TwoColumn from "../tiles/TwoColumn";
+import Group from "../tiles/Group";
 
 type LayoutProps = {
   tile: TileType;
@@ -23,7 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ tile, locationName, openModal }) => {
       );
     } else if (tile.type === 'group') {
       return (
-        <TwoColumn tile={tile} locationName={locationName} openModal={openModal} />
+        <Group tile={tile} locationName={locationName} openModal={openModal} />
       )
     } else {
       return (
