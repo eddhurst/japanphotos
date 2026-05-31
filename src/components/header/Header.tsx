@@ -39,7 +39,9 @@ const Header: React.FC<HeaderProps> = ({ holidayGroups, selectedHolidayId, onHol
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-gray-900">Zoe and Edd</h1>
+              <h1 className="text-2xl font-bold text-gray-900">
+                Zoe and Edd visit...
+              </h1>
               <label htmlFor="holiday-select" className="sr-only">Select holiday</label>
               <select
                 id="holiday-select"
@@ -61,8 +63,8 @@ const Header: React.FC<HeaderProps> = ({ holidayGroups, selectedHolidayId, onHol
                 key={location.id}
                 href={`#${location.id}`}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeSection === location.id
-                    ? 'bg-gray-900 text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
+                  ? 'bg-gray-900 text-white'
+                  : 'text-gray-700 hover:bg-gray-100'
                   }`}
               >
                 {location.name}

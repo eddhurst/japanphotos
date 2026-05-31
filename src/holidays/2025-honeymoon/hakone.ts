@@ -9,7 +9,7 @@ const Hakone = {
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/hakoneTorii.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/hakoneTorii.jpg`,
       tall: true
     },
     {
@@ -20,23 +20,23 @@ const Hakone = {
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250910173437.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250910173437.jpg`,
       tall: true
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/hakoneFerry.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/hakoneFerry.jpg`,
     },
     {
       columns: 2,
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/20250911_095631.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/20250911_095631.jpg`,
     },
 
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/20250913_074418.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/20250913_074418.jpg`,
       tall: true
     },
 
@@ -47,12 +47,12 @@ const Hakone = {
         {
           columns: 2,
           type: 'image',
-          image: `${ASSET_CDN}/assets/hakone/IMG20250910142915.jpg`,
+          image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250910142915.jpg`,
         },
         {
           columns: 2,
           type: 'image',
-          image: `${ASSET_CDN}/assets/hakone/20250911_165935.jpg`,
+          image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/20250911_165935.jpg`,
         },
       ]
     },
@@ -60,63 +60,63 @@ const Hakone = {
     {
       columns: 2,
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/20250912_160512.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/20250912_160512.jpg`,
     },
 
 
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250910191553.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250910191553.jpg`
     },
 
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250910192724.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250910192724.jpg`
     },
     {
       columns: 2,
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250910175000.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250910175000.jpg`,
     },
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250911050804.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250911050804.jpg`
     },
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250911081147.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250911081147.jpg`
     },
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250911082222.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250911082222.jpg`
     },
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250911082345.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250911082345.jpg`
     },
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250911083241.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250911083241.jpg`
     },
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250911134919.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250911134919.jpg`
     },
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250911135055.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250911135055.jpg`
     },
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250911151605.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250911151605.jpg`
     },
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250912115500.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250912115500.jpg`
     },
     {
       type: 'image',
-      image: `${ASSET_CDN}/assets/hakone/IMG20250912173632.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/hakone/IMG20250912173632.jpg`
     },
   ],
 } as LocationType;

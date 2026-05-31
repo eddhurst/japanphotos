@@ -9,7 +9,7 @@ const Tokyo = {
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoWet.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoWet.jpg`
     },
     {
       columns: 1,
@@ -19,33 +19,33 @@ const Tokyo = {
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoMammoth.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoMammoth.jpg`
     },
     {
       columns: 2,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoStreet.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoStreet.jpg`,
       wide: true
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoFood.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoFood.jpg`
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoTrees.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoTrees.jpg`
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoTemple.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoTemple.jpg`
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoStoneLantern.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoStoneLantern.jpg`
     },
     {
       columns: 2,
@@ -55,31 +55,31 @@ const Tokyo = {
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/toriiGates.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/toriiGates.jpg`,
       tall: true
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoTowerFuji.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoTowerFuji.jpg`,
       tall: true
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoTowerTall.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoTowerTall.jpg`,
       tall: true
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoCatScreen.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoCatScreen.jpg`,
       tall: true
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoWaterPipe.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoWaterPipe.jpg`
     },
     {
       columns: 2,
@@ -90,22 +90,22 @@ const Tokyo = {
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoWaterFountain.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoWaterFountain.jpg`
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoDinner.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoDinner.jpg`
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/whisky.jpg`
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/whisky.jpg`
     },
     {
       columns: 1,
       type: 'image',
-      image: `${ASSET_CDN}/assets/tokyo/tokyoWoodenSculptureLeft.jpg`,
+      image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoWoodenSculptureLeft.jpg`,
       tall: true
     },
     {
@@ -115,7 +115,7 @@ const Tokyo = {
     },
     {
       columns: 1,
-      type: 'image', image: `${ASSET_CDN}/assets/tokyo/tokyoWoodenSculptureRight.jpg`, tall: true
+      type: 'image', image: `${ASSET_CDN}/assets/2025-honeymoon/tokyo/tokyoWoodenSculptureRight.jpg`, tall: true
     },
   ],
 } as LocationType;
