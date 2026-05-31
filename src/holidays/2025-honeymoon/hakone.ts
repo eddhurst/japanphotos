@@ -1,5 +1,5 @@
-import { LocationType } from "../types/types";
-import { ASSET_CDN } from "../utils/constants";
+import { LocationType } from "../../types/types";
+import { ASSET_CDN } from "../../utils/constants";
 
 const Hakone = {
   id: 'hakone',
@@ -62,13 +62,13 @@ const Hakone = {
       type: 'image',
       image: `${ASSET_CDN}/assets/hakone/20250912_160512.jpg`,
     },
-    
-    
+
+
     {
       type: 'image',
       image: `${ASSET_CDN}/assets/hakone/IMG20250910191553.jpg`
     },
-  
+
     {
       type: 'image',
       image: `${ASSET_CDN}/assets/hakone/IMG20250910192724.jpg`

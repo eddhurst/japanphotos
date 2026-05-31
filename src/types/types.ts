@@ -8,6 +8,12 @@ export type TileType =
   { columns?: number; type: 'gif'; gifSrc: string; placeholderSrc: string } |
   GroupTile;
 
+export interface HolidayGroupType {
+  id: string;
+  name: string;
+  locations: LocationType[];
+}
+
 export interface LocationType {
   id: string;
   name: string;

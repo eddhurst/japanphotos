@@ -1,5 +1,4 @@
-import { type Location } from "../App";
-import { ASSET_CDN } from "../utils/constants";
+import { LocationType } from "../../types/types";
 
 const Kamakura = {
   id: 'kamakura',
@@ -11,6 +10,6 @@ const Kamakura = {
     { type: 'image', image: 'https://images.pexels.com/photos/2187602/pexels-photo-2187602.jpeg?auto=compress&cs=tinysrgb&w=800' },
     { type: 'image', image: 'https://images.pexels.com/photos/5433929/pexels-photo-5433929.jpeg?auto=compress&cs=tinysrgb&w=800' },
   ],
-} as Location;
+} as LocationType;
 
 export default Kamakura;

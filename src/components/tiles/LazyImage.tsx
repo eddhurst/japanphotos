@@ -33,7 +33,7 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt, columns = 1, tall = fal
 
     return () => observer.disconnect();
   }, []);
-  
+
   let width = 'col-span-3 lg:col-span-1';
   if (columns === 2) {
     width = 'md:col-span-2 max-h-[300px]';
@@ -58,6 +58,7 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt, columns = 1, tall = fal
       ref={imgRef}
       className={wrapperStyles}
       onClick={onClick}
+      aria-hidden="true"
     >
       {isInView && (
         <>
@@ -66,9 +67,8 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt, columns = 1, tall = fal
             alt={alt}
             loading="lazy"
             onLoad={() => setIsLoaded(true)}
-            className={`w-full h-full object-cover transition-all duration-500 transform group-hover:scale-110 ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`w-full h-full object-cover transition-all duration-500 transform group-hover:scale-110 ${isLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
           />
           {!isLoaded && (
             <div className="absolute inset-0 flex items-center justify-center">

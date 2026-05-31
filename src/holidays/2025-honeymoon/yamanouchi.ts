@@ -1,5 +1,4 @@
-import { type Location } from "../App";
-import { ASSET_CDN } from "../utils/constants";
+import { LocationType } from "../../types/types";
 
 const Yamanouchi = {
   id: 'yamanouchi',
@@ -11,6 +10,6 @@ const Yamanouchi = {
     { type: 'image', image: 'https://images.pexels.com/photos/7675416/pexels-photo-7675416.jpeg?auto=compress&cs=tinysrgb&w=800' },
     { type: 'image', image: 'https://images.pexels.com/photos/12461026/pexels-photo-12461026.jpeg?auto=compress&cs=tinysrgb&w=800' },
   ],
-} as Location;
+} as LocationType;
 
 export default Yamanouchi;

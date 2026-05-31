@@ -1,8 +1,8 @@
 import { TileType } from "../../types/types";
 import GifTile from "../tiles/GifTile";
+import Group from "../tiles/Group";
 import LazyImage from "../tiles/LazyImage";
 import QuoteTile from "../tiles/QuoteTile";
-import Group from "../tiles/Group";
 
 type LayoutProps = {
   tile: TileType;
@@ -11,32 +11,33 @@ type LayoutProps = {
 };
 
 const Layout: React.FC<LayoutProps> = ({ tile, locationName, openModal }) => {
-    if (tile.type === 'quote') {
-      return <QuoteTile text={tile.text} columns={tile.columns} />;
-    } else if (tile.type === 'gif') {
-      return (
-        <GifTile
-          gifSrc={tile.gifSrc}
-          placeholderSrc={tile.placeholderSrc}
-          alt={`${locationName} - Animation`}
-        />
-      );
-    } else if (tile.type === 'group') {
-      return (
-        <Group tile={tile} locationName={locationName} openModal={openModal} />
-      )
-    } else {
-      return (
-        <LazyImage
-          columns={tile.columns}
-          src={tile.image}
-          tall={tile.tall}
-          alt={`${locationName} - Photo`}
-          onClick={() => openModal(tile.image)}
-        />
-      );
-    }
-    
+  if (tile.type === 'quote') {
+    return <QuoteTile text={tile.text} columns={tile.columns} />;
+  } else if (tile.type === 'gif') {
+    return (
+      <GifTile
+        aria-hidden="true"
+        gifSrc={tile.gifSrc}
+        placeholderSrc={tile.placeholderSrc}
+        alt={`${locationName} - Animation`}
+      />
+    );
+  } else if (tile.type === 'group') {
+    return (
+      <Group tile={tile} locationName={locationName} openModal={openModal} />
+    )
+  } else {
+    return (
+      <LazyImage
+        columns={tile.columns}
+        src={tile.image}
+        tall={tile.tall}
+        alt={`${locationName} - Photo`}
+        onClick={() => openModal(tile.image)}
+      />
+    );
+  }
+
 }
 
 export default Layout;

@@ -34,6 +34,7 @@ const GifTile = ({ gifSrc, placeholderSrc, alt }: { gifSrc: string; placeholderS
     <div
       ref={imgRef}
       className="relative aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden group cursor-pointer"
+      aria-hidden="true"
       onClick={togglePlay}
     >
       {isInView && (
@@ -43,9 +44,8 @@ const GifTile = ({ gifSrc, placeholderSrc, alt }: { gifSrc: string; placeholderS
             alt={alt}
             loading="lazy"
             onLoad={() => setIsLoaded(true)}
-            className={`w-full h-full object-cover transition-all duration-500 transform group-hover:scale-110 ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`w-full h-full object-cover transition-all duration-500 transform group-hover:scale-110 ${isLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
           />
           {!isLoaded && (
             <div className="absolute inset-0 flex items-center justify-center">

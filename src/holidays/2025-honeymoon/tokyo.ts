@@ -1,5 +1,5 @@
-import { LocationType } from "../types/types";
-import { ASSET_CDN } from "../utils/constants";
+import { LocationType } from "../../types/types";
+import { ASSET_CDN } from "../../utils/constants";
 
 const Tokyo = {
   id: 'tokyo',
@@ -85,7 +85,7 @@ const Tokyo = {
       columns: 2,
       type: 'quote',
       text: 'Surprisingly, the Waterworks museum(C16 wooden water pipe, pictured left) was one of our favourite museums in Tokyo.Lots of tourist hostpots and scenic areas lacked context for why they were important, but by focussing on a small niche we got a deeper understanding for the historical events within the last 4 centuries that filled in a lot of gaps for other aspects of the city as well.',
-   
+
     },
     {
       columns: 1,
@@ -115,7 +115,7 @@ const Tokyo = {
     },
     {
       columns: 1,
-      type: 'image', image: `${ASSET_CDN}/assets/tokyo/tokyoWoodenSculptureRight.jpg`,tall: true
+      type: 'image', image: `${ASSET_CDN}/assets/tokyo/tokyoWoodenSculptureRight.jpg`, tall: true
     },
   ],
 } as LocationType;

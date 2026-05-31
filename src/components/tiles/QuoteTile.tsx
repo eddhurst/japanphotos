@@ -21,12 +21,12 @@ const QuoteTile: React.FC<QuoteTileProps> = ({ text, columns = 1 }) => {
   );
 
   return (
-    <div className={wrapperStyles}>
-      <div className="text-7xl text-white opacity-50 font-serif leading-[0.25] absolute top-8 left-2 pointer-events-none">&ldquo;</div>
+    <div className={wrapperStyles} aria-label="Quote Block">
+      <div className="text-7xl text-white opacity-50 font-serif leading-[0.25] absolute top-8 left-2 pointer-events-none" aria-hidden="true">&ldquo;</div>
       <p className="text-white text-lg leading-relaxed font-light italic">
         {text}
       </p>
-      <div className="text-7xl text-white opacity-50 font-serif leading-[0.25] absolute bottom-0 right-2 pointer-events-none">&rdquo;</div>
+      <div className="text-7xl text-white opacity-50 font-serif leading-[0.25] absolute bottom-0 right-2 pointer-events-none" aria-hidden="true">&rdquo;</div>
     </div>
   );
 }

@@ -1,63 +1,72 @@
 import { useEffect, useState } from "react";
-import { LocationType } from "../../types/types";
+import { HolidayGroupType, LocationType } from "../../types/types";
 
-const Header: React.FC<{ locations: LocationType[] }> = ({ locations }) => {
-  const [activeSection, setActiveSection] = useState('tokyo');
+type HeaderProps = {
+  holidayGroups: HolidayGroupType[];
+  selectedHolidayId: string;
+  onHolidayChange: (holidayId: string) => void;
+  locations: LocationType[];
+};
+
+const Header: React.FC<HeaderProps> = ({ holidayGroups, selectedHolidayId, onHolidayChange, locations }) => {
+  const [activeSection, setActiveSection] = useState(locations[0]?.id ?? '');
 
   useEffect(() => {
-      const handleScroll = () => {
-        const sections = locations.map((loc) => ({
-          id: loc.id,
-          element: document.getElementById(loc.id),
-        }));
-  
-        for (const section of sections) {
-          if (section.element) {
-            const rect = section.element.getBoundingClientRect();
-            if (rect.top <= 150 && rect.bottom >= 150) {
-              setActiveSection(section.id);
-              break;
-            }
+    const handleScroll = () => {
+      const sections = locations.map((loc) => ({
+        id: loc.id,
+        element: document.getElementById(loc.id),
+      }));
+
+      for (const section of sections) {
+        if (section.element) {
+          const rect = section.element.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            setActiveSection(section.id);
+            break;
           }
         }
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-  
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 100;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: 'smooth',
-      });
-    }
-  };
-  
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [locations]);
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-md z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-3">
-            <h1 className="text-2xl font-bold text-gray-900">JapanMoon</h1>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3">
+              <h1 className="text-2xl font-bold text-gray-900">Zoe and Edd</h1>
+              <label htmlFor="holiday-select" className="sr-only">Select holiday</label>
+              <select
+                id="holiday-select"
+                value={selectedHolidayId}
+                onChange={(event) => onHolidayChange(event.target.value)}
+                className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm transition focus:border-gray-500 focus:outline-none"
+              >
+                {holidayGroups.map((group) => (
+                  <option key={group.id} value={group.id}>
+                    {group.name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <nav className="hidden md:flex space-x-1">
             {locations.map((location) => (
-              <button
+              <a
                 key={location.id}
-                onClick={() => scrollToSection(location.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeSection === location.id
+                href={`#${location.id}`}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeSection === location.id
                     ? 'bg-gray-900 text-white'
                     : 'text-gray-700 hover:bg-gray-100'
-                }`}
+                  }`}
               >
                 {location.name}
-              </button>
+              </a>
             ))}
           </nav>
         </div>
